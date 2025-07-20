@@ -15,18 +15,22 @@ export default function Navbar() {
   }, []);
   return (
     <nav className="flex items-center justify-between px-8 py-3 shadow-sm border-b-[1px]">
-      <Link href={"/dashboard"}>
+      <Link href={"/"}>
         <ul>
-          <li>Dashboard</li>
+          <li>Home</li>
         </ul>
       </Link>
-      <Link
-        href={"/profiles"}
-        className="flex items-center justify-center gap-4"
-      >
-        <ul>
-          <li>Profiles</li>
-        </ul>
+      <div className="flex items-center gap-4">
+        <Link href={"/dashboard"}>
+          <ul>
+            <li>Dashboard</li>
+          </ul>
+        </Link>
+        <Link href={"/profile"}>
+          <ul>
+            <li>Profile</li>
+          </ul>
+        </Link>
         {mounted &&
           (resolvedTheme === "dark" ? (
             <Button onClick={() => setTheme("light")}>
@@ -37,7 +41,7 @@ export default function Navbar() {
               <Moon />
             </Button>
           ))}
-      </Link>
+      </div>
     </nav>
   );
 }
