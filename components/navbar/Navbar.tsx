@@ -3,6 +3,7 @@
 import { Button } from "../ui/button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import React from "react";
 
 export default function Navbar() {
@@ -14,11 +15,18 @@ export default function Navbar() {
   }, []);
   return (
     <nav className="flex items-center justify-between px-8 py-3 shadow-sm border-b-[1px]">
-      <ul>
-        <li>Dashboard</li>
-      </ul>
-      <ul className="flex items-center justify-center gap-4">
-        <li>Profiles</li>
+      <Link href={"/dashboard"}>
+        <ul>
+          <li>Dashboard</li>
+        </ul>
+      </Link>
+      <Link
+        href={"/profiles"}
+        className="flex items-center justify-center gap-4"
+      >
+        <ul>
+          <li>Profiles</li>
+        </ul>
         {mounted &&
           (resolvedTheme === "dark" ? (
             <Button onClick={() => setTheme("light")}>
@@ -29,7 +37,7 @@ export default function Navbar() {
               <Moon />
             </Button>
           ))}
-      </ul>
+      </Link>
     </nav>
   );
 }
