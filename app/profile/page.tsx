@@ -81,9 +81,6 @@ export default function ProfileSetupPage() {
                   Change
                 </div>
               </div>
-              <span className="text-xs text-muted-foreground mt-1">
-                Click to upload
-              </span>
             </div>
             <div className="space-y-2">
               <Label htmlFor="username" className="text-base font-medium">
